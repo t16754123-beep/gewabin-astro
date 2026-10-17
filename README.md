@@ -16,7 +16,30 @@ pnpm build
 pnpm preview
 ```
 
-Upload the contents of `dist/` to a static hosting provider. For Git-based hosting, use `pnpm build` and output directory `dist`.
+Upload the contents of `dist/` to a static hosting provider. For Git-based hosting, use `npm run build` and output directory `dist` after installing dependencies.
+
+## Cloudflare Pages deployment
+
+Connect `t16754123-beep/gewabin-astro` through Cloudflare Pages Git integration with the following configuration:
+
+| Setting | Value |
+|---|---|
+| Suggested project name | `gewabin-evaporative-condenser` (subject to availability) |
+| Production branch | `main` |
+| Framework preset | Astro |
+| Build command | `npm run build` |
+| Build output directory | `dist` |
+| Root directory | Repository root (leave blank) |
+| Node.js version | `24.19.0`, provided by `.node-version` |
+| Environment variable | `PNPM_VERSION=11.25.0` |
+
+The repository keeps its existing pnpm lockfile and package manager configuration for dependency installation. `npm run build` runs the same Astro build script. Set `PNPM_VERSION` for both production and preview builds, because Cloudflare's v3 build environment does not infer it from the lockfile.
+
+The proposed Pages hostname is `gewabin-evaporative-condenser.pages.dev`. It is not reserved by this repository; Cloudflare must confirm availability during project creation. A custom `.com` or other independent domain requires an already registered domain and a separate domain association.
+
+Setup: https://developers.cloudflare.com/pages/get-started/git-integration/
+Astro configuration: https://developers.cloudflare.com/pages/framework-guides/deploy-an-astro-site/
+Build environment: https://developers.cloudflare.com/pages/configuration/build-image/
 
 ## Content and images
 
@@ -35,3 +58,4 @@ Upload the contents of `dist/` to a static hosting provider. For Git-based hosti
 ## Edit
 
 Content is in `src/data/content.ts`, page routes in `src/pages/`, shared layout in `src/layouts/Layout.astro`, and responsive styling in `src/styles/global.css`.
+
