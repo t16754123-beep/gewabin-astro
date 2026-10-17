@@ -12,7 +12,13 @@ export const categories = [
  {id:'towers',name:'Closed Circuit Cooling Towers',image:'tower-category.jpg',text:'Cross flow and counter flow cooling towers with a closed-loop process fluid circuit.'},
  {id:'parts',name:'Heat Exchanger Parts',image:'parts-category.jpg',text:'Condenser coils, PVC fill and drift eliminators for refrigeration equipment.'},
 ];
-export const products = [
+const productRecords = [
+ {slug:'hot-dip-galvanized-condenser-coil',name:'Hot Dip Galvanized Condenser Coil',category:'parts',series:'HEAT EXCHANGER COMPONENTS',image:'coil.jpg',
+  description:'A condenser coil transfers heat from refrigerant inside the tubes to the spray water outside. Gewabin supplies hot-dip galvanized coils made from seamless steel tubing.',features:['Seamless steel tubing','Hot-dip galvanized coil and frame','Compact tube arrangement','Contact Gewabin for equipment matching'],specs:[['Component','Condenser coil'],['Finish','Hot-dip galvanized'],['Selection','Confirm dimensions, refrigerant and design conditions']],source:'https://www.gwbrefrigeration.com/refrigeration-heat-exchanger-parts/condenser-coil/hot-dip-galvanized-condenser-coil.html'},
+ {slug:'cooling-tower-pvc-fill',name:'Cooling Tower PVC Fill',category:'parts',series:'FILL & WATER DISTRIBUTION',image:'pvc-fill.jpg',
+  description:'Cooling tower fill increases the contact area between water and air. Gewabin offers fill for industrial cooling towers in a choice of sizes and materials.',features:['Large water-contact surface','Low ventilation resistance','PVC / PP material options','Custom dimensions available on request'],specs:[['Material options','PVC / PP'],['Listed widths','915 / 1220 / 1520 mm'],['Application','Industrial cooling tower'],['Length','According to project requirements']],source:'https://www.gwbrefrigeration.com/refrigeration-heat-exchanger-parts/pvc-fill/cooling-tower-pvc-fill.html'},
+ {slug:'cooling-tower-drift-eliminator',name:'Cooling Tower Drift Eliminator',category:'parts',series:'DRIFT ELIMINATION',image:'drift-eliminator.jpg',
+  description:'Rigid PVC drift eliminators separate entrained water droplets from the air stream as it changes direction. Modular construction supports access for cleaning and maintenance.',features:['Rigid PVC construction','Droplet separation through changes in airflow direction','Low pressure-drop design','Pre-assembled modular sections'],specs:[['Material','Rigid PVC'],['Function','Separate entrained water droplets'],['Arrangement','Modular sections'],['Selection','Confirm module dimensions with Gewabin']],source:'https://www.gwbrefrigeration.com/refrigeration-heat-exchanger-parts/drift-eliminator/cooling-tower-drift-eliminator.html'},
  {slug:'stainless-steel-evaporative-condenser',name:'Stainless Steel Evaporative Condenser',category:'condensers',series:'GWBS · CROSS FLOW',image:'condenser.jpg',
   description:'The stainless steel evaporative condenser condenses refrigerant gas inside the coil to complete the heat exchange cycle. It combines a condensing coil, axial fan, circulating water pump, PVC fill and removable drift eliminator.',
   features:['High-quality seamless steel condensing coil','Aluminum alloy propeller fan','PVC honeycomb fill and removable drift eliminator','Convenient maintenance, transportation and installation'],
@@ -36,6 +42,7 @@ export const products = [
   description:'Gewabin supplies refrigeration heat exchanger components including condenser coils, cooling tower PVC fill and drift eliminators.',features:['Condenser coils','PVC cooling tower fill','Drift eliminators','Contact Gewabin for component selection'],
   specs:[['Product range','Coils / PVC fill / drift eliminators'],['Application','Refrigeration heat exchangers'],['Selection','Matched to equipment requirements']],source:'https://www.gwbrefrigeration.com/refrigeration-heat-exchanger-parts/'},
 ];
+export const products=productRecords.sort((a,b)=>['condensers','towers','parts'].indexOf(a.category)-['condensers','towers','parts'].indexOf(b.category));
 export const stories = [
  {slug:'ice-making-project-malaysia',title:'Evaporative Condenser in Ice Making Project in Malaysia',date:'October 18, 2023',tag:'PROJECT NEWS',image:'malaysia.jpg',
  text:'A GEWABIN GWBS-1800 ammonia-system evaporative condenser was installed at an ice factory in Malaysia. The equipment features a galvanized shell and stainless steel coil.',source:'https://www.gwbrefrigeration.com/news/evaporative-condenser-in-ice-making-project-in-72601390.html'},

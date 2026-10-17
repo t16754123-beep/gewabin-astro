@@ -1,0 +1,6 @@
+---
+import Layout from '../layouts/Layout.astro';
+import PageHero from '../components/PageHero.astro';
+import {searchEntries} from '../data/site';
+---
+<Layout title="Site Map"><PageHero title="Site Map" description="Explore the Gewabin website."/><section class="section wrap"><ul class="html-sitemap">{searchEntries.map(e=><li><a href={e.href}>{e.title}</a></li>)}</ul></section></Layout>

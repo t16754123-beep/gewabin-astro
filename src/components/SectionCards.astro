@@ -1,0 +1,4 @@
+---
+const {entries}=Astro.props;
+---
+<div class="section-card-grid">{entries.map((e)=><a href={e.href} class="section-card">{e.image&&<div class="section-card-image"><img src={'/images/'+e.image} alt={e.title} width="680" height="440" loading="lazy"/></div>}<div class="section-card-copy">{e.type&&<span class="eyebrow">{e.type}</span>}<h2>{e.title}</h2><p>{e.description}</p><span class="text-link">Explore <span aria-hidden="true">→</span></span></div></a>)}</div>

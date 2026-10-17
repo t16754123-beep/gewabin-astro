@@ -35,4 +35,29 @@ The logo is the user-supplied QQ图片20261017212434.jpg with only its outer whi
 
 ## Inquiry behavior
 
+## Full-site expansion sources
+
+All new prose is a concise Gewabin-based summary or a project-information checklist. SPX is used for visual structure and page types, not product claims or article copy.
+
+- Coils: https://www.gwbrefrigeration.com/refrigeration-heat-exchanger-parts/condenser-coil/hot-dip-galvanized-condenser-coil.html
+- Fill: https://www.gwbrefrigeration.com/refrigeration-heat-exchanger-parts/pvc-fill/cooling-tower-pvc-fill.html
+- Drift eliminators: https://www.gwbrefrigeration.com/refrigeration-heat-exchanger-parts/drift-eliminator/cooling-tower-drift-eliminator.html
+- Services: https://www.gwbrefrigeration.com/service
+- Cold storage: https://www.gwbrefrigeration.com/info/evaporative-condenser-for-cold-storage-88660227.html
+- Industrial cooling: https://www.gwbrefrigeration.com/info/condensers-and-evaporators-for-industrial-refr-88660165.html
+- Building applications: https://www.gwbrefrigeration.com/info/application-of-evaporative-condenser-88660051.html
+- Data-center context: https://www.gwbrefrigeration.com/info/evaporative-condenser-refrigeration-systems-88660170.html (an application overview, not an installed Gewabin case)
+- Inspection context: https://www.gwbrefrigeration.com/info/cooling-tower-and-condenser-water-design-88660324.html
+
+Additional local photos, all from the authorized Gewabin website:
+
+| Local file | Source URL |
+|---|---|
+| coil.jpg | https://www.gwbrefrigeration.com/uploads/201817989/hot-dip-galvanized-condenser-coil00454270545.jpg |
+| pvc-fill.jpg | https://www.gwbrefrigeration.com/uploads/201817989/cooling-tower-pvc-fill29535712762.jpg |
+| drift-eliminator.jpg | https://www.gwbrefrigeration.com/uploads/201817989/cooling-tower-drift-eliminator39512659539.jpg |
+| factory-workshop.jpg | https://www.gwbrefrigeration.com/Content/upload/2018387041/201810151407221158426.jpg |
+
+## Inquiry behavior (all sections)
+
 The form generates a mailto URL. It opens the visitor's email client for review and sending. It does not claim delivery or store user information on a server.

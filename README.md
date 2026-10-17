@@ -57,5 +57,10 @@ Build environment: https://developers.cloudflare.com/pages/configuration/build-i
 
 ## Edit
 
-Content is in `src/data/content.ts`, page routes in `src/pages/`, shared layout in `src/layouts/Layout.astro`, and responsive styling in `src/styles/global.css`.
+The expanded website has 46 static HTML pages, including the 404 page. Its eight main sections are Products, Parts, Library, About, Applications, Services, Tools and News. It includes product category pages, three component products, five application pages, three service pages, factory/quality/location pages, four technical reading pages and two official video embeds.
 
+The resource library supports type and keyword filters. Site-wide search works in the browser. The product-family selector groups equipment by purpose and prepopulates an inquiry; it does not calculate thermal capacity or make a final engineering selection. Technical guides can be printed from the browser. There are no invented PDF downloads or backend email delivery claims.
+
+New page content is defined in `src/data/extended.ts`, route and navigation metadata in `src/data/site.ts`, and common section templates in `src/pages/[...path].astro`. Source provenance is recorded in `docs/content-sources.md`.
+
+Content is in `src/data/content.ts`, page routes in `src/pages/`, shared layout in `src/layouts/Layout.astro`, and responsive styling in `src/styles/global.css`.
