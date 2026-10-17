@@ -1,6 +1,6 @@
 # Gewabin Astro website
 
-A static Astro 6 website using SPX Cooling's homepage structure, the supplied Gewabin logo and Gewabin product content.
+A static Astro 6 website using CHT TECK's page layout as a visual reference, the supplied Gewabin logo and Gewabin product content.
 
 ## Run locally
 
@@ -43,16 +43,16 @@ Build environment: https://developers.cloudflare.com/pages/configuration/build-i
 
 ## Content and images
 
-- Visual structure: https://spxcooling.com/
+- Current visual reference: https://chtteck.com/ (homepage, product, about and contact page layouts).
 - Requested content site: https://www.gewabintech.com/
 - Authorized alternative: https://www.gwbrefrigeration.com/
 - The original site was inaccessible during collection. The user explicitly authorized the alternative Gewabin website. Product content, imagery, company facts and contact information come from these Gewabin websites; individual records contain source URLs in `src/data/content.ts`.
 - Logo: user-supplied `QQ图片20261017212434.jpg`, whitespace trimmed without changing the artwork.
 - News retains the original 2023 publication dates.
 - Product images are local assets, not hotlinked.
-- Typography follows the reference: locally hosted Lato and Open Sans. The homepage follows the reference's compact header, carousel, overlapping intro card, video, three-column news, blue contact band and image-backed inquiry section.
+- Locally hosted Lato and Open Sans. The current homepage includes a horizontal white header, photographic hero carousel, service benefits, company overview, eight-product matrix, manufacturing panels, industry applications, project steps, FAQ, resource cards and two inquiry forms. Shared inner pages use photographic banners, rounded cards and a dark footer.
 - The factory video is the official Gewabin embed linked on its video page: https://www.gwbrefrigeration.com/video (YouTube ID `4irPZt6UlNA`). Playback depends on YouTube availability.
-- Contact form uses an explicit `mailto:` handoff. There is no form backend or server delivery confirmation. A configured email app is needed.
+- All contact forms use an explicit `mailto:` handoff to `gwbalice0818@gmail.com`. There is no form backend or server delivery confirmation. A configured email app is needed; attachments can be added there before sending.
 - Source specifications describe the corresponding source product; confirm equipment selection with Gewabin before purchase.
 
 ## Edit
@@ -61,6 +61,6 @@ The expanded website has 46 static HTML pages, including the 404 page. Its eight
 
 The resource library supports type and keyword filters. Site-wide search works in the browser. The product-family selector groups equipment by purpose and prepopulates an inquiry; it does not calculate thermal capacity or make a final engineering selection. Technical guides can be printed from the browser. There are no invented PDF downloads or backend email delivery claims.
 
-New page content is defined in `src/data/extended.ts`, route and navigation metadata in `src/data/site.ts`, and common section templates in `src/pages/[...path].astro`. Source provenance is recorded in `docs/content-sources.md`.
+New page content is defined in `src/data/extended.ts`, route and navigation metadata in `src/data/site.ts`, and common section templates in `src/pages/[...path].astro`. Source provenance is recorded in `docs/content-sources.md`. Current reference-specific styling is in `src/styles/cht-reference.css` and the reusable homepage form is `src/components/ProjectInquiry.astro`.
 
 Content is in `src/data/content.ts`, page routes in `src/pages/`, shared layout in `src/layouts/Layout.astro`, and responsive styling in `src/styles/global.css`.

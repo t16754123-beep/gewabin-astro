@@ -3,10 +3,17 @@ import { company, categories } from '../data/content';
 import { navigation,categoryPaths } from '../data/site';
 import '../styles/global.css';
 import '../styles/fonts.css';
-import '../styles/reference.css';
+
 import '../styles/expanded.css';
+import '../styles/cht-reference.css';
 const {title='Evaporative Cooling Solutions', description=company.intro,noindex=false} = Astro.props;
 const path=Astro.url.pathname;
+const headerItems=[
+ {title:'HOME',href:'/',links:[]},
+ {title:'PRODUCTION',href:'/products/',links:[...categories.map(c=>({title:c.name,href:'/products/categories/'+categoryPaths[c.id]+'/'})),{title:'Parts & Components',href:'/parts/'},{title:'Product Family Selector',href:'/tools/product-selector/'}]},
+ {title:'SUPPORT',href:'/services/',links:[{title:'Technical Consultation',href:'/services/technical-consultation/'},{title:'Customization & OEM',href:'/services/customization/'},{title:'Installation & After-Sales',href:'/services/installation-support/'},{title:'Manufacturing Workshop',href:'/about/factory/'},{title:'Testing & Quality Control',href:'/about/quality/'},{title:'Applications',href:'/applications/'},{title:'Resource Center',href:'/library/'},{title:'Videos',href:'/library/videos/'},{title:'FAQs',href:'/#faq'}]},
+ {title:'ABOUT US',href:'/about/',links:[]},{title:'BLOG',href:'/news/',links:[]},{title:'CONTACT US',href:'/contact/',links:[]}
+];
 ---
 <!doctype html>
 <html lang="en">
@@ -18,35 +25,36 @@ const path=Astro.url.pathname;
 </head>
 <body>
  <a href="#main" class="skip">Skip to content</a>
- <header class="site-header">
-  <div class="header-inner wrap">
-   <a class="brand" href="/" aria-label="Gewabin home"><img src="/images/gewabin-logo.png" alt="Gewabin 格瓦宾" width="170" height="84"/></a>
-   <div class="header-actions"><button class="desktop-menu-toggle" aria-expanded="false" aria-controls="desktop-menu">Menu <span>⌄</span></button><a class="quote-btn" href="/contact/">Get A Quote</a><a class="contact-header" href="/contact/">Contact Us</a><span class="header-language" lang="en">EN <span>⌄</span></span><button class="icon-btn search-toggle" aria-label="Search products" aria-expanded="false"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="10.5" cy="10.5" r="6.5"/><path d="m16 16 5 5"/></svg></button><button class="menu-toggle icon-btn" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-menu"><span></span><span></span></button></div>
+ <header class="cht-header">
+  <div class="cht-header-inner">
+   <a class="cht-brand" href="/" aria-label="Gewabin home"><img src="/images/gewabin-logo.png" alt="Gewabin 格瓦宾" width="180" height="72"/></a>
+   <nav class="cht-navigation" aria-label="Main navigation">{headerItems.map(item=><div class="cht-nav-item"><a href={item.href} aria-current={path===item.href?'page':undefined}>{item.title}</a>{item.links.length>0&&<><button class="cht-sub-toggle" aria-label={'Open '+item.title.toLowerCase()+' menu'} aria-expanded="false">⌄</button><div class="cht-dropdown">{item.links.map(link=><a href={link.href}>{link.title}</a>)}</div></>}</div>)}</nav>
+   <div class="cht-header-actions"><button class="icon-btn search-toggle" aria-label="Search Gewabin" aria-expanded="false" aria-controls="header-search"><svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="10.5" cy="10.5" r="6.5"/><path d="m16 16 5 5"/></svg></button><button class="menu-toggle icon-btn" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-menu"><span></span><span></span><span></span></button></div>
   </div>
-  <nav id="desktop-menu" class="reference-menu expanded-menu" hidden aria-label="Main navigation"><div class="wrap">{navigation.map(n=><div><h2><a href={n.href}>{n.title}</a></h2>{n.links.map(link=><a href={link.href} aria-current={path===link.href?'page':undefined}>{link.title}</a>)}<a class="menu-overview" href={n.href}>{n.title==='About'?'About Gewabin':'View all '+n.title.toLowerCase()} →</a></div>)}</div></nav>
-  <form class="header-search wrap" hidden action="/search/"><label for="header-q">Search Gewabin</label><input id="header-q" name="q" placeholder="Search products, applications, services…" required/><button class="btn" type="submit">Search →</button></form>
-  <nav id="mobile-menu" class="mobile-menu" hidden aria-label="Mobile navigation">{navigation.map(n=><details><summary>{n.title}</summary><a href={n.href}>{n.title==='About'?'About Gewabin':'View all '+n.title.toLowerCase()}</a>{n.links.map(link=><a href={link.href} aria-current={path===link.href?'page':undefined}>{link.title}</a>)}</details>)}<a href="/contact/">Contact Us</a></nav>
+  <form id="header-search" class="header-search wrap" hidden action="/search/"><label for="header-q">Search Gewabin</label><input id="header-q" name="q" placeholder="Products, applications, services…" required/><button class="btn" type="submit">Search →</button></form>
+  <nav id="mobile-menu" class="mobile-menu" hidden aria-label="Mobile navigation">{headerItems.map(item=>item.links.length?<details><summary>{item.title}</summary><a href={item.href}>View all</a>{item.links.map(link=><a href={link.href}>{link.title}</a>)}</details>:<a href={item.href}>{item.title}</a>)}</nav>
  </header>
  <main id="main"><slot/></main>
- <footer>
+ <footer class="cht-footer">
   <div class="wrap footer-grid">
-   <div class="footer-brand"><a href="/" aria-label="Gewabin home"><img src="/images/gewabin-logo.png" alt="Gewabin 格瓦宾" width="170" height="84" loading="lazy"/></a><p>{company.philosophy}</p></div>
-   <div><h2>Explore</h2><a href="/about/">About Us</a><a href="/applications/">Applications</a><a href="/services/">Services</a><a href="/news/">News & Projects</a><a href="/library/">Resource Library</a><a href="/tools/product-selector/">Product Family Selector</a></div>
-   <div><h2>Products</h2>{categories.map(c=><a href={'/products/categories/'+categoryPaths[c.id]+'/'}>{c.name}</a>)}<a href="/parts/">Parts & Components</a><a href="/library/videos/">Video Library</a></div>
-   <div><h2>Contact Us</h2><a href={'tel:'+company.mobile.replaceAll(' ','')}>{company.mobile}</a><a href={'mailto:'+company.email}>{company.email}</a><p>{company.address}</p></div>
+   <div class="footer-brand"><a href="/" aria-label="Gewabin home"><img src="/images/gewabin-logo.png" alt="Gewabin 格瓦宾" width="170" height="84" loading="lazy"/></a><p>Your partner for evaporative cooling and heat transfer equipment. Customized products, processing services and OEM solutions.</p></div>
+   <div><h2>NAVIGATION</h2><a href="/">Home</a><a href="/news/">Blog & Projects</a><a href="/about/">About Us</a><a href="/applications/">Applications</a><a href="/services/">Technical Support</a><a href="/library/">Resource Center</a><a href="/contact/">Contact Us</a></div>
+   <div><h2>FEATURED PRODUCTS</h2>{categories.map(c=><a href={'/products/categories/'+categoryPaths[c.id]+'/'}>{c.name}</a>)}<a href="/parts/">Parts & Components</a><a href="/tools/product-selector/">Product Family Selector</a><a href="/library/videos/">Video Center</a></div>
+   <div><h2>CONTACT</h2><a href={'tel:'+company.phone.replaceAll(/[^+0-9]/g,'')}>{company.phone}</a><a href={'tel:'+company.mobile.replaceAll(' ','')}>{company.mobile}</a><a href={'mailto:'+company.email}>{company.email}</a><p>{company.address}</p></div>
   </div>
-  <div class="wrap footer-bottom"><span>© {new Date().getFullYear()} {company.name}</span><a href="/site-map/">Site Map</a><span>GEWABIN · HEAT EXCHANGE TECHNOLOGY</span></div>
+  <div class="wrap footer-bottom"><span>Copyright © {new Date().getFullYear()} GEWABIN | All Rights Reserved.</span><a href="/site-map/">Site Map</a></div>
  </footer>
+ <aside class="cht-contact-rail" aria-label="Quick contact"><a href="/contact/"><span aria-hidden="true">☏</span> Get a Quote</a><a href="https://wa.me/8613867612832" target="_blank" rel="noopener noreferrer"><span aria-hidden="true">◉</span> WhatsApp</a><a href="tel:+8651087852861"><span aria-hidden="true">☎</span> Call Now</a><a href={'mailto:'+company.email}><span aria-hidden="true">✉</span> Email Now</a></aside>
  <script>
  const menu=document.querySelector<HTMLButtonElement>('.menu-toggle');
  const panel=document.querySelector<HTMLElement>('#mobile-menu');
  menu?.addEventListener('click',()=>{if(!panel)return;const open=menu.getAttribute('aria-expanded')!=='true';menu.setAttribute('aria-expanded',String(open));menu.setAttribute('aria-label',open?'Close menu':'Open menu');panel.hidden=!open;});
  const search=document.querySelector<HTMLButtonElement>('.search-toggle');
  const searchPanel=document.querySelector<HTMLFormElement>('.header-search');
- const desktopMenu=document.querySelector<HTMLButtonElement>('.desktop-menu-toggle'),desktopPanel=document.querySelector<HTMLElement>('#desktop-menu');
- desktopMenu?.addEventListener('click',()=>{if(!desktopPanel)return;desktopPanel.hidden=!desktopPanel.hidden;desktopMenu.setAttribute('aria-expanded',String(!desktopPanel.hidden));});
- search?.addEventListener('click',()=>{if(!searchPanel)return;searchPanel.hidden=!searchPanel.hidden;search.setAttribute('aria-expanded',String(!searchPanel.hidden));if(!searchPanel.hidden) document.querySelector<HTMLInputElement>('#header-q')?.focus();});
- document.addEventListener('keydown',e=>{if(e.key==='Escape'){if(panel)panel.hidden=true;menu?.setAttribute('aria-expanded','false');if(searchPanel)searchPanel.hidden=true;search?.setAttribute('aria-expanded','false');if(desktopPanel)desktopPanel.hidden=true;desktopMenu?.setAttribute('aria-expanded','false');}});
+ document.querySelectorAll<HTMLButtonElement>('.cht-sub-toggle').forEach(button=>button.addEventListener('click',()=>{const open=button.getAttribute('aria-expanded')!=='true';document.querySelectorAll('.cht-sub-toggle').forEach(b=>b.setAttribute('aria-expanded','false'));button.setAttribute('aria-expanded',String(open));}));
+ search?.addEventListener('click',()=>{if(!searchPanel)return;searchPanel.hidden=!searchPanel.hidden;search.setAttribute('aria-expanded',String(!searchPanel.hidden));if(!searchPanel.hidden)document.querySelector<HTMLInputElement>('#header-q')?.focus();});
+ document.addEventListener('keydown',e=>{if(e.key==='Escape'){if(panel)panel.hidden=true;menu?.setAttribute('aria-expanded','false');if(searchPanel)searchPanel.hidden=true;search?.setAttribute('aria-expanded','false');document.querySelectorAll('.cht-sub-toggle').forEach(b=>b.setAttribute('aria-expanded','false'));}});
+ document.addEventListener('click',e=>{if(!(e.target instanceof Element)||e.target.closest('.cht-nav-item'))return;document.querySelectorAll('.cht-sub-toggle').forEach(b=>b.setAttribute('aria-expanded','false'));});
  </script>
 </body>
 </html>

@@ -4,7 +4,11 @@ User explicitly authorized gwbrefrigeration.com when gewabintech.com could not b
 
 ## Layout reference
 
-https://spxcooling.com/ — measured at 1440px desktop width. Visual styling only.
+Current reference: https://chtteck.com/ — homepage, evaporative condenser, about and contact layouts reviewed at 1440px desktop width on 2026-10-17. The design is implemented in Astro using Gewabin branding and assets. CHT TECK's product photos, certificates, commercial promises and company statistics are not used.
+
+Previous reference: https://spxcooling.com/ (superseded by the user-requested CHT TECK redesign).
+
+An attempt to access https://www.gewabintech.com/ on 2026-10-17 timed out. The previously authorized Gewabin alternative remains the content source for this version.
 
 ## Gewabin content
 

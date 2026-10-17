@@ -4,6 +4,8 @@ import PageHero from '../components/PageHero.astro';
 import SectionCards from '../components/SectionCards.astro';
 import ProductCard from '../components/ProductCard.astro';
 import ContactBand from '../components/ContactBand.astro';
+import ProjectInquiry from '../components/ProjectInquiry.astro';
+import {applications} from '../data/extended';
 import {expansionPages,navigation} from '../data/site';
 import {products,company} from '../data/content';
 export function getStaticPaths(){return expansionPages.map(page=>({params:{path:page.path},props:{page}}));}
@@ -13,7 +15,7 @@ const section=navigation.find(n=>p.parent?.href===n.href);
 ---
 <Layout title={p.title} description={p.description}>
  <PageHero {...p}/>
- {p.entries?<section class="section wrap"><SectionCards entries={p.entries}/></section>:<section class="section wrap inner-layout">
+ {p.kind==='category'?<section class="section wrap cht-category-intro"><div class="cht-category-image"><img src={'/images/'+p.image} alt={p.title} width="680" height="520"/></div><div><h2>Explore Gewabin {p.title}</h2><p>{p.description}</p><ul class="check-list">{selected[0]?.features.map(feature=><li>{feature}</li>)}</ul><a class="btn" href={'/contact/?topic='+encodeURIComponent(p.title)}>Discuss Your Requirements →</a></div></section>:p.entries?<section class="section wrap"><SectionCards entries={p.entries}/></section>:<section class="section wrap inner-layout">
   <article class="inner-content">
    {p.image&&<div class:list={['inner-hero-image',{contain:p.kind==='category'||p.path.startsWith('parts/')}]}><img src={'/images/'+p.image} alt={p.title} width="1000" height="580"/></div>}
    {p.kind==='category'&&<div class="inner-section"><h2>Explore the product family</h2><p>{p.description}</p><a class="text-link" href="/tools/product-selector/">Need help finding a product family? <span>→</span></a></div>}
@@ -26,6 +28,7 @@ const section=navigation.find(n=>p.parent?.href===n.href);
   <aside class="inner-sidebar" aria-label="Section navigation"><h2>{p.parent?.title||'Explore Gewabin'}</h2><nav>{(section?.links||navigation.map(n=>({title:n.title,href:n.href}))).map(link=><a href={link.href} aria-current={link.href==='/'+p.path+'/'?'page':undefined}>{link.title}<span>›</span></a>)}</nav><div class="sidebar-contact"><h3>Discuss your requirements</h3><p>Share your application and equipment details with the Gewabin team.</p><a class="btn" href={'/contact/?topic='+encodeURIComponent(p.title)}>Contact Gewabin →</a></div></aside>
  </section>}
  {selected.length>0&&<section class="section related-section"><div class="wrap"><div class="section-heading"><h2>{p.kind==='category'?'Products in this family':'Related equipment & components'}</h2><a class="text-link" href="/products/">All products <span>→</span></a></div><div class="product-grid">{selected.map(product=><ProductCard product={product}/>)}</div></div></section>}
+ {p.kind==='category'&&<><section class="section wrap cht-feature"><a class="cht-feature-photo" href="/about/factory/"><img src="/images/production.jpg" alt="Gewabin equipment manufacturing" width="680" height="500" loading="lazy"/></a><div><h2>Your Cooling Equipment Manufacturing Partner</h2><p>{company.intro}</p><p>{company.about}</p><a class="btn" href="/about/factory/">Explore Our Factory →</a></div></section><section class="section wrap"><div class="cht-section-heading"><div><h2>Industry Applications</h2><p>Begin with your operating conditions and discuss equipment selection with the Gewabin team.</p></div></div><SectionCards entries={applications.slice(0,3).map(a=>({...a,href:'/applications/'+a.slug+'/'}))}/></section><section class="section wrap cht-contact-section"><h2>Discuss Your Cooling Project</h2><p>Send the application, operating conditions and equipment requirements.</p><ProjectInquiry title=""/></section></>}
  <ContactBand/>
  <script>document.querySelector('.print-page')?.addEventListener('click',()=>window.print());</script>
 </Layout>

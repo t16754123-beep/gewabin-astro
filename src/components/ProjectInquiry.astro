@@ -1,0 +1,14 @@
+---
+import {company} from '../data/content';
+const {compact=false,title='Contact Our Technical Team'}=Astro.props;
+---
+<form class:list={['project-inquiry',{compact}]} data-recipient={company.email}>
+ {title&&<h3>{title}</h3>}
+ <div class="project-fields"><label><span>Your name *</span><input name="name" placeholder="Your name *" autocomplete="name" maxlength="100" required/></label><label><span>Your email *</span><input name="email" type="email" placeholder="Your email *" autocomplete="email" maxlength="200" required/></label><label><span>Your phone</span><input name="phone" type="tel" placeholder="Your phone" autocomplete="tel" maxlength="60"/></label></div>
+ <label class="project-message"><span>Your message *</span><textarea name="message" placeholder="Your message — application, operating conditions and equipment requirements *" maxlength="5000" required></textarea></label>
+ <div class="project-submit"><p>Opens your email app. Review and send to <a href={'mailto:'+company.email}>{company.email}</a>.</p><button class="btn" type="submit">Send Your Inquiry <span>→</span></button></div>
+ <p class="project-status" role="status" aria-live="polite"></p>
+</form>
+<script>
+ document.querySelectorAll<HTMLFormElement>('.project-inquiry').forEach(form=>form.addEventListener('submit',e=>{e.preventDefault();if(!form.reportValidity())return;const d=new FormData(form),recipient=form.dataset.recipient!;const body=`Name: ${d.get('name')}\nEmail: ${d.get('email')}\nPhone: ${d.get('phone')}\n\nProject requirements:\n${d.get('message')}`;location.href='mailto:'+recipient+'?subject='+encodeURIComponent('Gewabin cooling equipment inquiry')+'&body='+encodeURIComponent(body);form.querySelector('.project-status')!.textContent='Review and send the inquiry in your email app. You can also email '+recipient+' directly.';}));
+</script>

@@ -1,4 +1,4 @@
 ---
-const {title,description,eyebrow='GEWABIN',parent}=Astro.props;
+const {title,description,eyebrow='GEWABIN',parent,kind}=Astro.props;
 ---
-<section class="page-banner"><div class="wrap"><nav class="breadcrumb" aria-label="Breadcrumb"><a href="/">Home</a><span aria-hidden="true">/</span>{parent&&<><a href={parent.href}>{parent.title}</a><span aria-hidden="true">/</span></>}<span aria-current="page">{title}</span></nav><span class="eyebrow">{eyebrow}</span><h1>{title}</h1>{description&&<p>{description}</p>}</div></section>
+<section class:list={['page-banner',{'category-banner':kind==='category'}]}><div class="wrap"><nav class="breadcrumb" aria-label="Breadcrumb"><a href="/">Home</a><span aria-hidden="true">/</span>{parent&&<><a href={parent.href}>{parent.title}</a><span aria-hidden="true">/</span></>}<span aria-current="page">{title}</span></nav><span class="eyebrow">{eyebrow}</span><h1>{title}</h1>{description&&<p>{description}</p>}{kind==='category'&&<a class="btn" href={'/contact/?topic='+encodeURIComponent(title)}>Request Product Information <span>→</span></a>}</div></section>
