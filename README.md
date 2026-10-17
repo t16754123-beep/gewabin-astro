@@ -55,7 +55,13 @@ Build environment: https://developers.cloudflare.com/pages/configuration/build-i
 - All contact forms use an explicit `mailto:` handoff to `gwbalice0818@gmail.com`. There is no form backend or server delivery confirmation. A configured email app is needed; attachments can be added there before sending.
 - Source specifications describe the corresponding source product; confirm equipment selection with Gewabin before purchase.
 
-## Edit
+## Google discovery
+
+The production URL is `https://gewabin-evaporative-condenser.pages.dev/`, configured as Astro `site` in `astro.config.mjs`. Builds automatically generate `dist/sitemap.xml` from the final indexable HTML pages and `dist/robots.txt` with the sitemap URL. The search and 404 pages retain `noindex` and are excluded. Canonical URLs use the production origin and exclude query parameters.
+
+In Google Search Console, add the complete production address as a **URL-prefix** property, verify ownership using the provided HTML file or HTML tag, and submit `sitemap.xml` in Sitemaps. The project does not contain a verification token and does not submit URLs to Google automatically. If the production domain changes, update Astro `site` and rebuild before submitting the new sitemap.
+
+## Editing content
 
 The expanded website has 46 static HTML pages, including the 404 page. Its eight main sections are Products, Parts, Library, About, Applications, Services, Tools and News. It includes product category pages, three component products, five application pages, three service pages, factory/quality/location pages, four technical reading pages and two official video embeds.
 

@@ -1,2 +1,9 @@
 import { defineConfig } from 'astro/config';
-export default defineConfig({ output: 'static', devToolbar: { enabled: false } });
+import searchDiscovery from './integrations/search-discovery.mjs';
+export default defineConfig({
+ site: 'https://gewabin-evaporative-condenser.pages.dev',
+ output: 'static',
+ trailingSlash: 'always',
+ integrations: [searchDiscovery()],
+ devToolbar: { enabled: false },
+});

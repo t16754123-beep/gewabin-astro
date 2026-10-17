@@ -8,6 +8,7 @@ import '../styles/expanded.css';
 import '../styles/cht-reference.css';
 const {title='Evaporative Cooling Solutions', description=company.intro,noindex=false} = Astro.props;
 const path=Astro.url.pathname;
+const canonical=new URL(path,Astro.site);
 const headerItems=[
  {title:'HOME',href:'/',links:[]},
  {title:'PRODUCTION',href:'/products/',links:[...categories.map(c=>({title:c.name,href:'/products/categories/'+categoryPaths[c.id]+'/'})),{title:'Parts & Components',href:'/parts/'},{title:'Product Family Selector',href:'/tools/product-selector/'}]},
@@ -20,6 +21,8 @@ const headerItems=[
 <head>
  <meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/>
  <title>{title} | Gewabin</title><meta name="description" content={description}/>
+ {!noindex&&<link rel="canonical" href={canonical.href}/>}
+ <link rel="sitemap" type="application/xml" href="/sitemap.xml"/>
  {noindex&&<meta name="robots" content="noindex, follow"/>}
  <meta name="theme-color" content="#20357d"/><link rel="icon" type="image/png" href="/images/gewabin-logo.png"/>
 </head>
