@@ -1,0 +1,44 @@
+export const company = {
+  name: 'Jiangsu Gewabin Heat Technology Co., Ltd',
+  email: 'gwbalice0818@gmail.com', phone: '+86-510-87852861', mobile: '+86 13867612832',
+  address: 'Industrial Concentration Zone (North), Wanshi Town, Yixing, Wuxi, Jiangsu Province, China',
+  intro: 'Established in 2017, Jiangsu Gewabin Heat Technology Co., Ltd specializes in the research, design, development and production of refrigeration equipment.',
+  about: 'Based in Yixing, China, our main production base covers 15,000 square meters. Our products include evaporative condensers, closed circuit cooling towers, air coolers and evaporators. We also provide customized products, processing services and OEM solutions.',
+  philosophy: 'Our success can be attributed to our dedication to quality, technical expertise, cost efficiency, and high technology capabilities.',
+  source: 'https://www.gwbrefrigeration.com/about-us',
+};
+export const categories = [
+ {id:'condensers',name:'Evaporative Condensers',image:'condenser-category.jpg',text:'Cross flow and counter flow evaporative condensers for ammonia and freon refrigeration systems.'},
+ {id:'towers',name:'Closed Circuit Cooling Towers',image:'tower-category.jpg',text:'Cross flow and counter flow cooling towers with a closed-loop process fluid circuit.'},
+ {id:'parts',name:'Heat Exchanger Parts',image:'parts-category.jpg',text:'Condenser coils, PVC fill and drift eliminators for refrigeration equipment.'},
+];
+export const products = [
+ {slug:'stainless-steel-evaporative-condenser',name:'Stainless Steel Evaporative Condenser',category:'condensers',series:'GWBS · CROSS FLOW',image:'condenser.jpg',
+  description:'The stainless steel evaporative condenser condenses refrigerant gas inside the coil to complete the heat exchange cycle. It combines a condensing coil, axial fan, circulating water pump, PVC fill and removable drift eliminator.',
+  features:['High-quality seamless steel condensing coil','Aluminum alloy propeller fan','PVC honeycomb fill and removable drift eliminator','Convenient maintenance, transportation and installation'],
+  specs:[['Coil tube diameter','Φ25 mm'],['Design pressure','1.97 MPa'],['Coil pressure test','2.5 MPa, tested three times'],['Fan','Aluminum alloy axial fan']],
+  source:'https://www.gwbrefrigeration.com/evaporative-condenser/cross-flow-evaporative-condenser/stainless-steel-evaporative-condenser.html'},
+ {slug:'counter-flow-evaporative-condenser',name:'Counter Flow Evaporative Condenser',category:'condensers',series:'GWBN · COUNTER FLOW',image:'counter-flow.jpg',
+  description:'Air travels vertically upward through the unit while spray water travels downward over the coil. Water evaporation and forced air convection remove heat from the fluid inside the tubes.',
+  features:['Hot-dip galvanized or stainless steel heat exchange tubes','Axial fan with aluminum alloy blades','Corrosion-resistant PVC air inlet','Even water distribution over the heat exchange coil'],
+  specs:[['Fan motor protection','IP55'],['Motor insulation','Class F'],['Coil material options','Hot-dip galvanized steel / SUS 304 / 316L'],['Airflow','Counter flow']],
+  source:'https://www.gwbrefrigeration.com/evaporative-condenser/counter-flow-evaporative-condenser/counter-flow-type-evaporative-condenser.html'},
+ {slug:'cross-flow-closed-circuit-cooling-tower',name:'Cross Flow Closed Circuit Cooling Tower',category:'towers',series:'GWBB · CLOSED CIRCUIT',image:'cooling-tower.jpg',
+  description:'Heat is transferred from the process fluid to the ambient air through a heat exchange coil. The coil isolates the process fluid from outside air, keeping it clean in a closed loop.',
+  features:['Isolated, closed-loop process fluid circuit','External spray water circuit','Combines a cooling tower and heat exchanger','Reduced piping and system complexity'],
+  specs:[['Configuration','Cross flow'],['Process fluid','Closed circuit'],['Heat transfer','Evaporative coil cooling'],['Packaging','Upper and lower sections']],
+  source:'https://www.gwbrefrigeration.com/closed-circuit-cooling-tower/cross-flow-closed-cooling-tower/closed-circuit-cooling-tower-cross-flow-type.html'},
+ {slug:'industrial-closed-cooling-tower',name:'Industrial Closed Cooling Tower',category:'towers',series:'GWBB · INDUSTRIAL',image:'industrial.jpg',
+  description:'A closed circuit cooling tower keeps the process fluid inside the heat exchange coil. The integrated cooling tower and heat exchanger arrangement is designed for industrial cooling applications.',
+  features:['Closed circuit heat exchange','Industrial cooling applications','Integrated coil and cooling tower arrangement','Customized equipment available'],specs:[['Equipment type','Closed circuit cooling tower'],['Application','Industrial process cooling'],['Configuration','Consult Gewabin for project selection']],
+  source:'https://www.gwbrefrigeration.com/closed-circuit-cooling-tower/counter-flow-closed-cooling-tower/industrial-evaporative-condenser-closed.html'},
+ {slug:'refrigeration-heat-exchanger-parts',name:'Refrigeration Heat Exchanger Parts',category:'parts',series:'COMPONENTS & ACCESSORIES',image:'parts-category.jpg',
+  description:'Gewabin supplies refrigeration heat exchanger components including condenser coils, cooling tower PVC fill and drift eliminators.',features:['Condenser coils','PVC cooling tower fill','Drift eliminators','Contact Gewabin for component selection'],
+  specs:[['Product range','Coils / PVC fill / drift eliminators'],['Application','Refrigeration heat exchangers'],['Selection','Matched to equipment requirements']],source:'https://www.gwbrefrigeration.com/refrigeration-heat-exchanger-parts/'},
+];
+export const stories = [
+ {slug:'ice-making-project-malaysia',title:'Evaporative Condenser in Ice Making Project in Malaysia',date:'October 18, 2023',tag:'PROJECT NEWS',image:'malaysia.jpg',
+ text:'A GEWABIN GWBS-1800 ammonia-system evaporative condenser was installed at an ice factory in Malaysia. The equipment features a galvanized shell and stainless steel coil.',source:'https://www.gwbrefrigeration.com/news/evaporative-condenser-in-ice-making-project-in-72601390.html'},
+ {slug:'fruit-preservation-warehouse',title:'Evaporative Condenser for Fruit Preservation Warehouse',date:'September 7, 2023',tag:'PROJECT NEWS',image:'warehouse.jpg',
+ text:'A Gewabin evaporative condenser was delivered to a large fruit preservation warehouse in Xinjiang. The counter flow equipment can use an air-cooling mode at low temperatures; the original guidance notes that water in the pipes and pump must be drained.',source:'https://www.gwbrefrigeration.com/news/evaporative-condenserl-for-large-fruit-preserv-70749397.html'},
+];

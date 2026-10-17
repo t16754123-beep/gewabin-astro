@@ -1,0 +1,37 @@
+# Gewabin Astro website
+
+A static Astro 6 website using SPX Cooling's homepage structure, the supplied Gewabin logo and Gewabin product content.
+
+## Run locally
+
+```sh
+pnpm install
+pnpm dev
+```
+
+## Build
+
+```sh
+pnpm build
+pnpm preview
+```
+
+Upload the contents of `dist/` to a static hosting provider. For Git-based hosting, use `pnpm build` and output directory `dist`.
+
+## Content and images
+
+- Visual structure: https://spxcooling.com/
+- Requested content site: https://www.gewabintech.com/
+- Authorized alternative: https://www.gwbrefrigeration.com/
+- The original site was inaccessible during collection. The user explicitly authorized the alternative Gewabin website. Product content, imagery, company facts and contact information come from these Gewabin websites; individual records contain source URLs in `src/data/content.ts`.
+- Logo: user-supplied `QQ图片20261017212434.jpg`, whitespace trimmed without changing the artwork.
+- News retains the original 2023 publication dates.
+- Product images are local assets, not hotlinked.
+- Typography follows the reference: locally hosted Lato and Open Sans. The homepage follows the reference's compact header, carousel, overlapping intro card, video, three-column news, blue contact band and image-backed inquiry section.
+- The factory video is the official Gewabin embed linked on its video page: https://www.gwbrefrigeration.com/video (YouTube ID `4irPZt6UlNA`). Playback depends on YouTube availability.
+- Contact form uses an explicit `mailto:` handoff. There is no form backend or server delivery confirmation. A configured email app is needed.
+- Source specifications describe the corresponding source product; confirm equipment selection with Gewabin before purchase.
+
+## Edit
+
+Content is in `src/data/content.ts`, page routes in `src/pages/`, shared layout in `src/layouts/Layout.astro`, and responsive styling in `src/styles/global.css`.

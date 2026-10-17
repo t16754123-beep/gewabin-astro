@@ -1,0 +1,7 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import {stories} from '../../data/content';
+export function getStaticPaths(){return stories.map(story=>({params:{slug:story.slug},props:{story}}));}
+const {story:s}=Astro.props;
+---
+<Layout title={s.title} description={s.text}><section class="page-banner"><div class="wrap"><div class="breadcrumb"><a href="/">Home</a><span>/</span><a href="/news/">News & Projects</a></div><span class="eyebrow">{s.tag} / {s.date}</span><h1>{s.title}</h1></div></section><article class="section wrap article"><img src={'/images/'+s.image} alt={s.title} width="1000" height="700"/><p>{s.text}</p><a class="source-link" href={s.source} target="_blank" rel="noopener noreferrer">Original Gewabin project story ↗</a><a class="btn" href="/contact/">Discuss your project <span>↗</span></a></article></Layout>

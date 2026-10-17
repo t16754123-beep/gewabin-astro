@@ -1,0 +1,7 @@
+---
+const {product:p}=Astro.props;
+---
+<a class="product-card" href={'/products/'+p.slug+'/'} data-product data-category={p.category} data-name={p.name.toLowerCase()}>
+ <div class="product-image"><img src={'/images/'+p.image} alt={p.name} width="600" height="480" loading="lazy"/><span class="card-arrow">↗</span></div>
+ <div class="product-copy"><span class="eyebrow">{p.series}</span><h3>{p.name}</h3><span class="text-link">Explore product <span>→</span></span></div>
+</a>

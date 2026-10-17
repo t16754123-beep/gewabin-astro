@@ -1,0 +1,6 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import ContactBand from '../../components/ContactBand.astro';
+import {stories} from '../../data/content';
+---
+<Layout title="News & Projects"><section class="page-banner"><div class="wrap"><div class="breadcrumb"><a href="/">Home</a><span>/</span><span>News & Projects</span></div><span class="eyebrow">GEWABIN IN THE FIELD</span><h1>News & Projects</h1></div></section><section class="section wrap"><div class="news-grid">{stories.map(s=><a class="news-card" href={'/news/'+s.slug+'/'}><div class="news-image"><img src={'/images/'+s.image} alt={s.title} width="650" height="440"/></div><span class="eyebrow">{s.date}</span><h3>{s.title}</h3><p>{s.text}</p><span class="text-link">Read story <span>→</span></span></a>)}</div></section><ContactBand/></Layout>

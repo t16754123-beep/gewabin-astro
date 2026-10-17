@@ -1,0 +1,18 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import ProductCard from '../../components/ProductCard.astro';
+import ContactBand from '../../components/ContactBand.astro';
+import { products, categories } from '../../data/content';
+---
+<Layout title="Products">
+ <section class="page-banner"><div class="wrap"><div class="breadcrumb"><a href="/">Home</a><span>/</span><span>Products</span></div><span class="eyebrow">GEWABIN PRODUCT PORTFOLIO</span><h1>Cooling equipment.<br/>For your application.</h1><p>Evaporative condensers, closed circuit cooling towers and refrigeration heat exchanger parts.</p></div></section>
+ <section class="section wrap"><div class="catalog-tools"><div class="filters" aria-label="Product categories"><button class="filter" data-filter="all" aria-pressed="true">All products</button>{categories.map(c=><button class="filter" data-filter={c.id} aria-pressed="false">{c.name}</button>)}</div><label><span class="skip">Search products</span><input class="catalog-search" id="product-search" type="search" placeholder="Search products…" aria-label="Search products"/></label></div><p class="result-count" role="status" aria-live="polite"></p><div class="product-grid">{products.map(p=><ProductCard product={p}/>)}</div><div class="empty-results" hidden><h2>No products found</h2><p>Try another keyword or select all products.</p><button class="btn" id="reset-search">Reset search →</button></div></section>
+ <ContactBand/>
+ <script>
+ const buttons=[...document.querySelectorAll<HTMLButtonElement>('[data-filter]')],cards=[...document.querySelectorAll<HTMLElement>('[data-product]')];
+ const input=document.querySelector<HTMLInputElement>('#product-search')!,count=document.querySelector('.result-count')!,empty=document.querySelector<HTMLElement>('.empty-results')!;
+ const params=new URLSearchParams(location.search);let category=params.get('category')||'all';if(!buttons.some(b=>b.dataset.filter===category))category='all';input.value=params.get('q')||'';
+ function filter(){let n=0;const query=input.value.trim().toLowerCase();cards.forEach(c=>{const show=(category==='all'||c.dataset.category===category)&&c.dataset.name!.includes(query);c.hidden=!show;if(show)n++;});buttons.forEach(b=>b.setAttribute('aria-pressed',String(b.dataset.filter===category)));count.textContent=`${n} ${n===1?'product':'products'}`;empty.hidden=n!==0;const url=new URL(location.href);url.search='';if(category!=='all')url.searchParams.set('category',category);if(input.value)url.searchParams.set('q',input.value);history.replaceState({},'',url);}
+ buttons.forEach(b=>b.addEventListener('click',()=>{category=b.dataset.filter!;filter();}));input.addEventListener('input',filter);document.querySelector('#reset-search')?.addEventListener('click',()=>{category='all';input.value='';filter();input.focus();});filter();
+ </script>
+</Layout>
